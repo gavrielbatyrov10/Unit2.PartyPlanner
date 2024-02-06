@@ -2,13 +2,34 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./index.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Party</title>
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="index.js"></script>
 </head>
 
 <body>
+    <h1>Event Organizer</h1>
+
+    <ul id="events">
+
+    </ul>
+
+    <form id="add__event--form">
+        <h2>Add New Event</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
+        <label for="description">Description:</label>
+        <textarea id="description"></textarea>
+        <button class="add" type="submit">Add Event</button>
+    </form>
 
 </body>
 
