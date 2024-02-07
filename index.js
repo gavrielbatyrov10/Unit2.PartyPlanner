@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("events").addEventListener("click", function (event) {
+    if (event.target.classList.contains("event__name")) {
+      const index = event.target.getAttribute("data-index");
+      const description = state.events[index].description;
+      document.getElementById("description-display").innerText = description; // Display the description
+    }
+  });
+});
+
 const COHORT = "2401-fsa-et-web-ft-sf";
 const API_URL = `https://fsa-crud-2aa9294fe819.herokuapp.com/api/${COHORT}/events`;
 
@@ -44,15 +54,15 @@ function render() {
   state.events.forEach((event, index) => {
     const eventItem = document.createElement("li");
     eventItem.innerHTML = `
-      <h2>${event.name}</h2>
-      <p><strong>Date:</strong> ${event.date}</p>
-      <p><strong>Time:</strong> ${event.time}</p>
-      <p><strong>Location:</strong> ${event.location}</p>
-      <p><strong>Description:</strong> ${event.description}</p>
+      <h2 class="event__name" data-index="${index}">${event.name}</h2>
+      <p>Date: ${event.date}</p>
+      <p>Time: ${event.time}</p>
+      <p>Location: ${event.location}</p>
+      <p>Description: ${event.description}</p>
       <button class="delete-btn" data-index="${index}">Delete</button>
       <hr>
     `;
-    events.appendChild(eventItem);
+    events.append(eventItem);
   });
 }
 
@@ -65,6 +75,16 @@ function deleteEvent(event) {
     render();
   }
 }
+document.addEventListener("DOMContentLoaded", function () {
+  const eventNames = document.querySelectorAll(".event__name");
 
-// Initial render
+  eventNames.forEach(function (eventName) {
+    eventName.addEventListener("click", function () {
+      const index = this.getAttribute("data-index");
+      const description = state.events[index].description;
+      document.getElementById("description-display").innerText = description;
+    });
+  });
+});
+
 render();
