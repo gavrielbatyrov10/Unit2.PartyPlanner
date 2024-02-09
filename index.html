@@ -11,7 +11,11 @@
 
 <body>
     <h1>Event Organizer</h1>
-
+    <form id="search">
+        <input type="text" name="search">
+        <input type="submit" value="search">
+    </form>
+    <div id="result"></div>
     <ul id="events">
 
     </ul>
@@ -27,12 +31,9 @@
         <label for="location">Location:</label>
         <input type="text" id="location" name="location">
         <label for="description">Description:</label>
-        <textarea id="description"></textarea>
-        <button class="add" type="submit">Add Event</button>
+        <textarea id="description" name="description"></textarea>
+        <input class="add" type="submit" value="Add Event" />
     </form>
-
-    <!-- Add the description display element -->
-    <div id="description-display"></div>
 </body>
 
 </html>
